@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint Release Notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+        :root {
+            --navy: #0056b3;
+            --light-navy: #007BFF;
+            --pale-blue: #f9f9f9;
+            --light-blue: #fff;
+        }
+
+        .department-section {
+            font-size: 0.875rem;
+            background-color: var(--pale-blue);
+            border-left: 4px solid var(--light-navy);
+            page-break-inside: avoid;
+        }
+        .department-section h3 {
+            font-size: 1rem;
+            color: var(--navy);
+        }
+        .story-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 9999px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background-color: var(--light-navy);
+            color: white;
+        }
+        .department-section ul {
+            font-size: 0.75rem;
+        }
+        .sprint-summary {
+            background-color: var(--light-blue);
+        }
+        .sprint-header {
+            background-color: var(--navy);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        .sprint-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--light-navy) 0%, transparent 50%);
+            opacity: 0.4;
+        }
+        .sprint-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-align: left;
+        }
+        .sprint-date {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            position: relative;
+            text-align: left;
+        }
+        .sprint-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 6rem; 
+            opacity: 0.2;
+        }
+        .department-header {
+            display: flex;
+            align-items: center;
+        }
+        .department-header i {
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+        .department-header h2 {
+            font-size: 1rem;
+        }
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1rem;
+            color: var(--navy);
+        }
+        @media print {
+            body {
+                width: 210mm;
+                height: auto; 
+            }
+            .no-print {
+                display: none;
+            }
+          
+            .bg-white {
+                background-color: white !important;
+            }
+            .rounded-xl {
+                border-radius: 0 !important; 
+            }
+            .shadow-xl {
+                box-shadow: none !important; 
+            }
+        }
+        .sprint-logo {
+            max-height: 100%; 
+            height: 100%; 
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+    <div id="content" class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8">
+        <div class="sprint-header flex items-center">
+            <div class="logo-container" style="width: 25%; height: 100%; display: flex; align-items: center; background-color: transparent;">
+                <img src="NO_Image.png" alt="Logo" class="sprint-logo" style="height: 100%; width: auto; opacity: 1; border-radius: 0.5rem;">
+            </div>
+            <div style="margin-left: 1rem; display: flex; flex-direction: column; justify-content: center;">
+                <h1 class="sprint-number" style="margin: 0; font-size: 2.5rem; font-weight: 700; color: white;">Release 15.00.00</h1>
+                <p class="sprint-date" style="margin: 0; font-size: 1.25rem; color: white;">Planned Date: January, 15th 2025</p>
+            </div>
+            <i class="fas fa-glasses sprint-icon" style="font-size: 6rem; margin-left: auto; opacity: 0.2;"></i>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+
+
+<div class="bg-white p-4 rounded-xl">
+    <div class="department-header mb-3">
+        <i class="fas fa-warehouse text-navy-800"></i>
+        <h2 class="font-bold text-navy-800">Distribution Center</h2>
+    </div>
+    <ul class="list-none pl-0 text-sm">
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Validate D365 ASN: Re-Routed Orders Excluded from Inbound Folder</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Ensure Frame Stock Returns to Store When Retail Lab Order is Transferred to DC</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Verify Trace File Integrity for Remake Orders</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Fix Corrupted Trace Files on Import for Remake Orders</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Resolve Issue of D365 ASN Re-Routed Orders Being Added to Inbound Folder</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Ensure Frame Stock is Properly Returned to Store Post Retail Lab Order Transfer</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Address RXI Bin Location Error Blocking RXI Requeue</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Fix OCC Pending Trace Filter Functionality</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Resolve Order Status Update Issue for Order 135237758</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Update RXI Requeue to Reflect Correct Employee Order Status</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Fix Job History "Export to Excel" Duplicate Lines in IRIS</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Optimize Lens Assignment for Lowest Cost DC in Remote Edge Jobs</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Frame Availability Error: 'Out of Stock' on Prescription Attachment Despite Stock at DC1</li>
+    </ul>
+</div>
+
+<div class="bg-white p-4 rounded-xl">
+    <div class="department-header mb-3">
+        <i class="fas fa-tools text-navy-800"></i>
+        <h2 class="font-bold text-navy-800">Field Operations</h2>
+    </div>
+    <ul class="list-none pl-0 text-sm">
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Fix OCC: POF/PSF On-Hold Orders Not Displaying in 'View POF/PSF Orders On Hold'</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Test Case: Ensure Order Job Sheet Populates Tint Level Details</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Resolve Editable Call Reference in RingCentral Appointment Edits</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Store Setup: Remove Lab Type from Display Under Attributes</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>IRIS Store Device Setup: Exclude Inactive Serial Numbers from Grid</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Fix 'Internal Server Error' on Paper Capture Upload in POF Screen</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Correct Promotion Mapping for OTC Items in IRIS</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Address Missing Tint Level Details in Order Job Sheet</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>IRIS Store Device Setup: Exclude Inactive Serial Numbers in Grid View</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Ensure Consistency in 'Same Day Pickup' Label</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Store Setup: Hide Lab Type Field from Attributes Display</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Resolve Editable Call Reference Issue in RingCentral Appointment Updates</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Fix Frame Variant Color Name Discrepancies in Product Catalog During Order Validation</li>
+    </ul>
+</div>
+
+<div class="bg-white p-4 rounded-xl">
+    <div class="department-header mb-3">
+        <i class="fas fa-calculator text-navy-800"></i>
+        <h2 class="font-bold text-navy-800">Finance</h2>
+    </div>
+    <ul class="list-none pl-0 text-sm">
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>TP/T Order Issue: SP and CL Orders Processed Without Meeting Payment Limit</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Exam Credit Duplication: $69 Credit Reapplied After Full Refund and Exam Refund</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Order Processing Error: SP and CL Orders Proceed Without Payment Limit Compliance</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Exam Credit Bug: Duplicate $69 Credit on Full Refund with Exam Refund for Orders Using Existing Credits</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Partial Refund Display Discrepancy: Correct Amount in Braintree, Full Amount on Receipt</li>
+    </ul>
+</div>
+
+<div class="bg-white p-4 rounded-xl">
+    <div class="department-header mb-3">
+        <i class="fas fa-bullhorn text-navy-800"></i>
+        <h2 class="font-bold text-navy-800">Marketing</h2>
+    </div>
+    <ul class="list-none pl-0 text-sm">
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>TP/T-Guided Sale: Event Journey Enhancements</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>TP/T-Patient Profile: Duplicate Rows in Communication Preferences</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>ECOMSupport Status: 'Product Out of Stock' Shown When IsOperational is OFF</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Order Status Notification: Incorrect Triggering Issue</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Braintree: Research and Development for Partial Refunds</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Store Hours Mismatch: Discrepancy Between PPC Landing Page and Website Store Details</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>SMS Promotional Opt-In: Update Checkbox Format for Checkout with Spanish and Privacy Policy Link</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Medical Form Update: Include Promotional Opt-In Messaging for Emarsys</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Confluence Documentation: Prepare CMS Data Structure Overview</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>401 Unauthorized Handler: Address Associate and Patient Access Issues</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Guest Spectacle Orders: Prevent Use of Same Prescription Multiple Times</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>MyEyeLabs Cleanup: Remove Unused Pages and Assets</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Fix 500 Error: Unauthorized Access to My Account</li>
+        <li class="mb-2"><i class="fas fa-check text-green-500 mr-2"></i>Scheduler Update: Implement SMS Promotional Opt-In Copy</li>
+    </ul>
+</div>
